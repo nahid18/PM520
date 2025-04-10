@@ -1,0 +1,65 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bayesnmf-vi"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Yifei Dai", email = "yifeid@usc.edu" },
+  { name = "Abdullah Nahid", email = "alnahid@usc.edu" },
+  { name = "Brett Yonezawa", email = "yonezawa@usc.edu" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "jax>=0.4.1",
+  "jaxlib>=0.4.1",
+  "optax>=0.1.4",
+  "numpy>=1.21.0"
+]
+[project.urls]
+Documentation = "https://github.com/yifdai/bayesnmf-vi#readme"
+Issues = "https://github.com/yifdai/bayesnmf-vi/issues"
+Source = "https://github.com/yifdai/bayesnmf-vi"
+
+[tool.hatch.version]
+path = "src/bayesnmf_vi/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/bayesnmf_vi tests}"
+
+[tool.coverage.run]
+source_pkgs = ["bayesnmf_vi", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/bayesnmf_vi/__about__.py",
+]
+
+[tool.coverage.paths]
+bayesnmf_vi = ["src/bayesnmf_vi", "*/bayesnmf-vi/src/bayesnmf_vi"]
+tests = ["tests", "*/bayesnmf-vi/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

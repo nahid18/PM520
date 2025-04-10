@@ -12,7 +12,7 @@ license = "MIT"
 keywords = []
 authors = [
   { name = "Yifei Dai", email = "yifeid@usc.edu" },
-  { name = "Abdullah Nahid", email = "alnahid@usc.edu" },
+  { name = "Abdullah AI Nahid", email = "alnahid@usc.edu" },
   { name = "Brett Yonezawa", email = "yonezawa@usc.edu" },
 ]
 classifiers = [
